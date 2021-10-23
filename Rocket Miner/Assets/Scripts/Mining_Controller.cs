@@ -11,6 +11,8 @@ public class Mining_Controller : MonoBehaviour
 
     float distance = 1.0f;
 
+    public float controlSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,8 @@ public class Mining_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        DirectionalMiningDetection();
+        Movement();
     }
 
     //Casts a ray in the direciton the player moves in, to detect blocks for mining.
@@ -66,5 +69,26 @@ public class Mining_Controller : MonoBehaviour
             endpos = transform.position + _direction;
             Debug.DrawLine(transform.position, endpos, Color.red);
         }
+    }
+
+    void Movement()
+    {
+        //Grabs the value of the horizontal and vertical axis
+        float horizontalMove = Input.GetAxis("Horizontal");
+        Debug.Log(horizontalMove);
+        float verticalMove = Input.GetAxis("Vertical");
+        Debug.Log(verticalMove);
+
+        //controls direciton of player movement on X axis
+        float xOffset = horizontalMove * Time.deltaTime * controlSpeed;
+        float newXPos = transform.position.x + xOffset;
+
+        //controls direciton of player movement on Y axis
+        float yOffset = verticalMove * Time.deltaTime * controlSpeed;
+        float newYPos = transform.position.y + yOffset;
+
+        transform.position = new Vector2(newXPos, newYPos);
+        //transform.position.x = Input.GetAxis("Vertical");
+        //Input.GetAxis("Horizontal");
     }
 }
