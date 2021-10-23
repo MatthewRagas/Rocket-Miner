@@ -12,10 +12,17 @@ public class Mining_Controller : MonoBehaviour
     float distance = 1.0f;
 
     public float controlSpeed;
+    float controlSpeedTemp;
+
+    public GameObject gameObject;
+
+    Rigidbody2D rigidbodies;
 
     // Start is called before the first frame update
     void Start()
     {
+        rigidbodies = gameObject.GetComponentInChildren<Rigidbody2D>();
+        controlSpeedTemp = controlSpeed;
 
     }
 
@@ -87,8 +94,33 @@ public class Mining_Controller : MonoBehaviour
         float yOffset = verticalMove * Time.deltaTime * controlSpeed;
         float newYPos = transform.position.y + yOffset;
 
+        if(Input.GetKey(KeyCode.W))
+        {
+            controlSpeed = 3.0f;
+            rigidbodies.gravityScale = 0.0f;
+            yOffset = verticalMove * Time.deltaTime * controlSpeed * 10;
+            newYPos = transform.position.y + yOffset;
+            
+        }
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            for(float _gravityScale = 0; _gravityScale <= 1.01f; _gravityScale += 0.01f)
+            {
+                rigidbodies.gravityScale = _gravityScale;
+            }
+            controlSpeed = controlSpeedTemp;
+        }
+
+
+
+
+
+
+
+
+
+
         transform.position = new Vector2(newXPos, newYPos);
-        //transform.position.x = Input.GetAxis("Vertical");
-        //Input.GetAxis("Horizontal");
+        
     }
 }
