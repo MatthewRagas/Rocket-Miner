@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mining_Controller : MonoBehaviour
 {
-    //Ray _ray;
+    Ray2D _ray;
     RaycastHit2D _hit;
     Vector3 _direction;
     Vector3 endpos;
@@ -23,7 +23,6 @@ public class Mining_Controller : MonoBehaviour
     {
         rigidbodies = gameObject.GetComponentInChildren<Rigidbody2D>();
         controlSpeedTemp = controlSpeed;
-
     }
 
     // Update is called once per frame
@@ -36,35 +35,39 @@ public class Mining_Controller : MonoBehaviour
     //Casts a ray in the direciton the player moves in, to detect blocks for mining.
     void DirectionalMiningDetection()
     {
+        Vector3 pos = transform.position;
         if (Input.GetKey(KeyCode.S))
         {
-            _hit = Physics2D.Raycast(transform.position, Vector2.down, distance);
+            pos.y = transform.position.y -.5f;
+            _hit = Physics2D.Raycast(pos, Vector2.down, distance);
 
             _direction.x = Input.GetAxis("Horizontal");
             _direction.y = Input.GetAxis("Vertical");
 
-            endpos = transform.position + _direction;
-            Debug.DrawLine(transform.position, endpos, Color.red);
+            endpos = pos + _direction;
+            Debug.DrawLine(pos, endpos, Color.red);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            _hit = Physics2D.Raycast(transform.position, Vector2.right, distance);
+            pos.x = transform.position.x + .5f;
+            _hit = Physics2D.Raycast(pos, Vector2.right, distance);
 
             _direction.x = Input.GetAxis("Horizontal");
             _direction.y = Input.GetAxis("Vertical");
 
-            endpos = transform.position + _direction;
-            Debug.DrawLine(transform.position, endpos, Color.red);
+            endpos = pos + _direction;
+            Debug.DrawLine(pos, endpos, Color.red);
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            _hit = Physics2D.Raycast(transform.position, Vector2.left, distance);
+            pos.x = transform.position.x - .5f;
+            _hit = Physics2D.Raycast(pos, Vector2.left, distance);
 
             _direction.x = Input.GetAxis("Horizontal");
             _direction.y = Input.GetAxis("Vertical");
 
-            endpos = transform.position + _direction;
-            Debug.DrawLine(transform.position, endpos, Color.red);
+            endpos = pos + _direction;
+            Debug.DrawLine(pos, endpos, Color.red);
         }
         else if (Input.GetKey(KeyCode.W))
         {
@@ -76,15 +79,19 @@ public class Mining_Controller : MonoBehaviour
             endpos = transform.position + _direction;
             Debug.DrawLine(transform.position, endpos, Color.red);
         }
+
+        _hit = Physics2D.Raycast(pos, endpos);
+        if(_hit.collider != null && _hit.collider.gameObject.name != "Player")
+        {
+            Debug.Log(_hit.collider.gameObject.name);
+        }
     }
 
     void Movement()
     {
         //Grabs the value of the horizontal and vertical axis
         float horizontalMove = Input.GetAxis("Horizontal");
-        Debug.Log(horizontalMove);
         float verticalMove = Input.GetAxis("Vertical");
-        Debug.Log(verticalMove);
 
         //controls direciton of player movement on X axis
         float xOffset = horizontalMove * Time.deltaTime * controlSpeed;
@@ -110,15 +117,6 @@ public class Mining_Controller : MonoBehaviour
             }
             controlSpeed = controlSpeedTemp;
         }
-
-
-
-
-
-
-
-
-
 
         transform.position = new Vector2(newXPos, newYPos);
         
