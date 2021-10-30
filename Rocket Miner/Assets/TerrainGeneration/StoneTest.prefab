@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2383795466506557560}
   - component: {fileID: 7809118223023412483}
   - component: {fileID: 1060612416410432006}
+  - component: {fileID: -7518309999454391330}
   m_Layer: 0
   m_Name: StoneTest
   m_TagString: Untagged
@@ -109,3 +110,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-7518309999454391330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086956217766762353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6d098c8d2709740840ad8fceed0f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockMineTimer: 2000

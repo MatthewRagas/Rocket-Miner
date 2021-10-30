@@ -10,6 +10,8 @@ public class Mining_Controller : MonoBehaviour
     Vector3 endpos;
 
     float distance = 1.0f;
+    public float diggingTimer;
+    bool isMining;
 
     public float controlSpeed;
     float controlSpeedTemp;
@@ -81,9 +83,31 @@ public class Mining_Controller : MonoBehaviour
         }
 
         _hit = Physics2D.Raycast(pos, endpos);
-        if(_hit.collider != null && _hit.collider.gameObject.name != "Player")
+        if (_hit.collider != null && _hit.collider.gameObject.name != "Player")
         {
+            
+            GameObject Block = GameObject.Find(_hit.collider.gameObject.name);
+            Block_Mining_Behavior MiningBehavior = (Block_Mining_Behavior) Block.GetComponent(typeof(Block_Mining_Behavior));
+
+            if (diggingTimer != MiningBehavior.blockMineTimer && isMining == true)
+            {
+                diggingTimer = MiningBehavior.blockMineTimer;
+            }
             Debug.Log(_hit.collider.gameObject.name);
+            Debug.Log(diggingTimer);
+            isMining = true;
+            diggingTimer = diggingTimer - Time.deltaTime;
+            if(diggingTimer <= 0)
+            {
+                Debug.Log("destroyed");
+            }
+
+        }
+        else
+        {
+            isMining = false;
+            Debug.Log("stop");
+
         }
     }
 
