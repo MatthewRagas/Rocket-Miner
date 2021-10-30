@@ -214,8 +214,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+<<<<<<< Updated upstream
 --- !u!1 &959133511 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 310254854395058563, guid: d287a2511a61af04b87e6b24804b08f8, type: 3}
@@ -236,6 +237,8 @@ MonoBehaviour:
   Square: {fileID: 310254854395058563, guid: d287a2511a61af04b87e6b24804b08f8, type: 3}
   Iron: {fileID: 1086956217766762353, guid: c021a9952c3d61d42b6ecfd4f1d71968, type: 3}
   Coal: {fileID: 6006638588000581155, guid: b147eae638c5ee34282fcf7a1882706b, type: 3}
+=======
+>>>>>>> Stashed changes
 --- !u!1 &984223359
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,8 +303,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
 --- !u!1 &1074890339
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,12 +454,73 @@ MonoBehaviour:
   controlSpeed: 5
   gameObject: {fileID: 1074890339}
 --- !u!1001 &1685032194
+=======
+--- !u!1001 &1185667005
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4510257550219630898, guid: 102ea1f77a8345d498c9966e7b9c27d5, type: 3}
+      propertyPath: m_Name
+      value: TerrainTestSquare
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261314895782702569, guid: 102ea1f77a8345d498c9966e7b9c27d5, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261314895782702569, guid: 102ea1f77a8345d498c9966e7b9c27d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261314895782702569, guid: 102ea1f77a8345d498c9966e7b9c27d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261314895782702569, guid: 102ea1f77a8345d498c9966e7b9c27d5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261314895782702569, guid: 102ea1f77a8345d498c9966e7b9c27d5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261314895782702569, guid: 102ea1f77a8345d498c9966e7b9c27d5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261314895782702569, guid: 102ea1f77a8345d498c9966e7b9c27d5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261314895782702569, guid: 102ea1f77a8345d498c9966e7b9c27d5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261314895782702569, guid: 102ea1f77a8345d498c9966e7b9c27d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261314895782702569, guid: 102ea1f77a8345d498c9966e7b9c27d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261314895782702569, guid: 102ea1f77a8345d498c9966e7b9c27d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 102ea1f77a8345d498c9966e7b9c27d5, type: 3}
+--- !u!1001 &1908938211716071340
+>>>>>>> Stashed changes
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+<<<<<<< Updated upstream
     - target: {fileID: 310254854395058563, guid: d287a2511a61af04b87e6b24804b08f8, type: 3}
       propertyPath: m_Name
       value: TerrainTestSquare
@@ -463,6 +528,35 @@ PrefabInstance:
     - target: {fileID: 7799443749283491160, guid: d287a2511a61af04b87e6b24804b08f8, type: 3}
       propertyPath: m_RootOrder
       value: 3
+=======
+    - target: {fileID: 1908938212790827464, guid: 9338a69adfe6aa446a46b2d7f2b18cdb, type: 3}
+      propertyPath: m_Mass
+      value: 0.64000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908938212790827464, guid: 9338a69adfe6aa446a46b2d7f2b18cdb, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908938212790827464, guid: 9338a69adfe6aa446a46b2d7f2b18cdb, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908938212790827464, guid: 9338a69adfe6aa446a46b2d7f2b18cdb, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908938212790827464, guid: 9338a69adfe6aa446a46b2d7f2b18cdb, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908938212790827465, guid: 9338a69adfe6aa446a46b2d7f2b18cdb, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908938212790827467, guid: 9338a69adfe6aa446a46b2d7f2b18cdb, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 7799443749283491160, guid: d287a2511a61af04b87e6b24804b08f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -504,6 +598,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 1908938212790827471, guid: 9338a69adfe6aa446a46b2d7f2b18cdb, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908938212790827471, guid: 9338a69adfe6aa446a46b2d7f2b18cdb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d287a2511a61af04b87e6b24804b08f8, type: 3}
 --- !u!1 &1986261947

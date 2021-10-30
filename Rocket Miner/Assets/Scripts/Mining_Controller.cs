@@ -28,7 +28,7 @@ public class Mining_Controller : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {        
         DirectionalMiningDetection();
         Movement();
     }
@@ -63,6 +63,7 @@ public class Mining_Controller : MonoBehaviour
             _direction.x = Input.GetAxis("Horizontal");
             _direction.y = Input.GetAxis("Vertical");
 
+<<<<<<< Updated upstream
             endpos = transform.position + _direction;
             Debug.DrawLine(transform.position, endpos, Color.red);
         }
@@ -75,6 +76,38 @@ public class Mining_Controller : MonoBehaviour
 
             endpos = transform.position + _direction;
             Debug.DrawLine(transform.position, endpos, Color.red);
+=======
+            endpos = pos + _direction;
+            Debug.DrawLine(pos, endpos, Color.red);
+        }       
+
+        _hit = Physics2D.Raycast(pos, endpos);
+        if (_hit.collider != null && _hit.collider.gameObject.name != "Player")
+        {
+            
+            GameObject Block = GameObject.Find(_hit.collider.gameObject.name);
+            Block_Mining_Behavior MiningBehavior = (Block_Mining_Behavior) Block.GetComponent(typeof(Block_Mining_Behavior));
+
+            if (diggingTimer != MiningBehavior.blockMineTimer && isMining == true)
+            {
+                diggingTimer = MiningBehavior.blockMineTimer;
+            }
+            Debug.Log(_hit.collider.gameObject.name);
+            Debug.Log(diggingTimer);
+            isMining = true;
+            diggingTimer = diggingTimer - Time.deltaTime;
+            if(diggingTimer <= 0)
+            {
+                Debug.Log("destroyed");
+            }
+
+        }
+        else
+        {
+            isMining = false;
+            Debug.Log("stop");
+
+>>>>>>> Stashed changes
         }
     }
 
@@ -96,18 +129,22 @@ public class Mining_Controller : MonoBehaviour
 
         if(Input.GetKey(KeyCode.W))
         {
+            rigidbodies.velocity = new Vector2(0.0f,0.0f);
             controlSpeed = 3.0f;
             rigidbodies.gravityScale = 0.0f;
+            rigidbodies.mass = 0.0f;
             yOffset = verticalMove * Time.deltaTime * controlSpeed * 10;
             newYPos = transform.position.y + yOffset;
             
         }
         if (Input.GetKeyUp(KeyCode.W))
         {
-            for(float _gravityScale = 0; _gravityScale <= 1.01f; _gravityScale += 0.01f)
-            {
-                rigidbodies.gravityScale = _gravityScale;
-            }
+            rigidbodies.gravityScale = 1.0f;
+            rigidbodies.mass = 0.64f;
+            //for(float _gravityScale = 0; _gravityScale <= 1.01f; _gravityScale += Time.deltaTime)
+            //{
+            //    rigidbodies.gravityScale = _gravityScale;
+            //}
             controlSpeed = controlSpeedTemp;
         }
 
@@ -122,5 +159,10 @@ public class Mining_Controller : MonoBehaviour
 
         transform.position = new Vector2(newXPos, newYPos);
         
+        if (rigidbodies.velocity.y < -50)
+        {
+            rigidbodies.velocity = new Vector2(rigidbodies.velocity.x, -50.0f);
+        }
+
     }
 }
